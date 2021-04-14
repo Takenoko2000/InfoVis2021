@@ -1,0 +1,110 @@
+<html>
+
+  <head>
+
+    <title>W02: Task3</title>
+
+  </head>
+  <body>
+      <script src="vec3.js"></script>
+
+        input vertices of 0 <br>
+        <input type="number" value="0" id="input_x0"/>
+        <input type="number" value="0" id="input_y0"/>
+        <input type="number" value="0" id="input_z0"/>
+        <br>
+      
+        input vertices of 1 <br>
+        <input type="number" value="5" id="input_x1"/>
+        <input type="number" value="0" id="input_y1"/>
+        <input type="number" value="0" id="input_z1"/>
+        <br>
+      
+        input vertices of 2 <br>
+        <input type="number" value="0" id="input_x2"/>
+        <input type="number" value="5" id="input_y2"/>
+        <input type="number" value="0" id="input_z2"/>
+      
+        <br>
+      
+            <input type="submit"
+            value="ClickMe"
+            id="click_me"/>
+        
+        <br>
+        <br>
+        
+        output <br>
+      
+            <input type="number"
+            id="output"/>
+      
+
+        <script>
+            var element = document.getElementById("click_me");
+            element.addEventListener("click", e );
+            
+            function e() {
+                var x0, y0, z0; // (input vertex 0)
+                x0 = document.getElementById("input_x0").valueAsNumber;
+                y0 = document.getElementById('input_y0').valueAsNumber;
+                z0 = document.getElementById('input_z0').valueAsNumber;
+
+                var x1, y1, z1; // (input vertex 1)
+                x1 = document.getElementById('input_x1').valueAsNumber;
+                y1 = document.getElementById('input_y1').valueAsNumber;
+                z1 = document.getElementById('input_z1').valueAsNumber;
+
+                var x2, y2, z2; // (input vertex 2)
+                x2 = document.getElementById('input_x2').valueAsNumber;
+                y2 = document.getElementById('input_y2').valueAsNumber;
+                z2 = document.getElementById('input_z2').valueAsNumber;
+
+                var v0 = new Vec3( x0, y0, z0 );
+                var v1 = new Vec3( x1, y1, z1 );
+                var v2 = new Vec3( x2, y2, z2 );
+
+                /*
+                var v0 = new Vec3( 50, 5, 50 );
+                var v1 = new Vec3( 5, 0, 0 );
+                var v2 = new Vec3( 50, 0, 0 );
+
+                var min = v0.x;
+                document.write(min);
+                */
+                
+                //3つの頂点を受け取って面積を計算する
+                function AreaOfTriangle( v0, v1, v2 ){
+                    
+                    //document.write(v0.x +" "+v0.y+" "+v0.z+"<br>");
+                    
+                    //各辺の長さを求める
+                    var vertice1 = Math.sqrt( (v0.x-v1.x)**2 + (v0.y-v1.y)**2 + (v0.z-v1.z)**2 );
+                    var vertice2 = Math.sqrt( (v0.x-v2.x)**2 + (v0.y-v2.y)**2 + (v0.z-v2.z)**2 );
+                    var vertice3 = Math.sqrt( (v1.x-v2.x)**2 + (v1.y-v2.y)**2 + (v1.z-v2.z)**2 );
+                    
+                    //ヘロンの公式で面積を求める
+                    var s = (vertice1 + vertice2 + vertice3) / 2;
+                    
+                    /*
+                    document.write("<br>" + vertice1);
+                    document.write("<br>" + vertice2);
+                    document.write("<br>" + vertice3);
+                    */
+                    return Math.sqrt( s * (s-vertice1) * (s-vertice2) * (s-vertice3) );
+                }
+                
+                var S = AreaOfTriangle( v0, v1, v2 ); // (output value)
+                
+                document.getElementById("output").value = S;
+                
+            }
+            
+            
+            
+        </script>
+      
+
+  </body>
+
+</html>
