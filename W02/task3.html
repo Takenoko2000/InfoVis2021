@@ -8,6 +8,7 @@
   <body>
       <script src="vec3.js"></script>
 
+        <!-- type="number"のinputで数字を入力させる -->
         input vertices of 0 <br>
         <input type="number" value="0" id="input_x0"/>
         <input type="number" value="0" id="input_y0"/>
@@ -27,24 +28,29 @@
       
         <br>
       
+      
+        <!-- submitのinputをクリックすると計算を行う-->
             <input type="submit"
-            value="ClickMe"
+            value="click"
             id="click_me"/>
         
-        <br>
-        <br>
+        <br><br>
         
+        <!-- 計算結果表示するinput -->
         output <br>
       
             <input type="number"
             id="output"/>
       
 
+        <!-- 以下、click_meをクリックしたときの計算内容 -->
         <script>
             var element = document.getElementById("click_me");
             element.addEventListener("click", e );
             
             function e() {
+                
+            
                 var x0, y0, z0; // (input vertex 0)
                 x0 = document.getElementById("input_x0").valueAsNumber;
                 y0 = document.getElementById('input_y0').valueAsNumber;
@@ -63,21 +69,10 @@
                 var v0 = new Vec3( x0, y0, z0 );
                 var v1 = new Vec3( x1, y1, z1 );
                 var v2 = new Vec3( x2, y2, z2 );
-
-                /*
-                var v0 = new Vec3( 50, 5, 50 );
-                var v1 = new Vec3( 5, 0, 0 );
-                var v2 = new Vec3( 50, 0, 0 );
-
-                var min = v0.x;
-                document.write(min);
-                */
                 
-                //3つの頂点を受け取って面積を計算する
+                
+                //3つの頂点を受け取って面積を計算する関数
                 function AreaOfTriangle( v0, v1, v2 ){
-                    
-                    //document.write(v0.x +" "+v0.y+" "+v0.z+"<br>");
-                    
                     //各辺の長さを求める
                     var vertice1 = Math.sqrt( (v0.x-v1.x)**2 + (v0.y-v1.y)**2 + (v0.z-v1.z)**2 );
                     var vertice2 = Math.sqrt( (v0.x-v2.x)**2 + (v0.y-v2.y)**2 + (v0.z-v2.z)**2 );
@@ -86,16 +81,11 @@
                     //ヘロンの公式で面積を求める
                     var s = (vertice1 + vertice2 + vertice3) / 2;
                     
-                    /*
-                    document.write("<br>" + vertice1);
-                    document.write("<br>" + vertice2);
-                    document.write("<br>" + vertice3);
-                    */
                     return Math.sqrt( s * (s-vertice1) * (s-vertice2) * (s-vertice3) );
                 }
                 
+                //計算を行って結果をinputに反映
                 var S = AreaOfTriangle( v0, v1, v2 ); // (output value)
-                
                 document.getElementById("output").value = S;
                 
             }
