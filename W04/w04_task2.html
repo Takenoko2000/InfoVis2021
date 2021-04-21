@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>W04: Example 13</title>
+        <title>W04: Task02</title>
     </head>
     <body>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
@@ -27,7 +27,7 @@
         
         
     svg.selectAll("text").data(data).enter().append("text")
-        .attr("x", function(d) { return text_x; })
+        .attr("x", text_x )
         .attr("y", function(d,i){ return padding + i * ( height + padding ) + text_size; })
         .attr("font-size", text_size)
         .text(function(d,i) { return "data " + i + ": " + d.width })
