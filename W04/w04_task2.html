@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>W04: Example 13</title>
+    </head>
+    <body>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script>
+        
+	 var padding = 50;
+	 var height = 20;
+	 var svg = d3.select("body").append("svg");
+    
+	 d3.csv("https://takenoko2000.github.io/InfoVis2021/W04/data_task2.csv", function(data){
+	 //d3.csv("./data_task2.csv", function(data){
+         
+	 svg.selectAll("rect").data(data).enter().append("text")
+        .attr("x", function(d) { return padding - 50; })
+	    .attr("y", function(d,i){ return padding + i * ( height + padding ); })
+        .text(function(d,i) { return "data ",i })
+     } );
+        
+	</script>
+    </body>
+</html>
