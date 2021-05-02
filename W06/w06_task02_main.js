@@ -35,6 +35,7 @@ class ScatterPlot {
         self.svg = d3.select( self.config.parent )
             .attr('width', self.config.width)
             .attr('height', self.config.height);
+             
 
         self.chart = self.svg.append('g')
             .attr('transform', `translate(${self.config.margin.left*2}, ${self.config.margin.top})`);
@@ -49,12 +50,13 @@ class ScatterPlot {
             .range( [self.inner_height - self.config.margin.top,0 ] );
             
             
-            
-            
+        
+        	
+        	
 
         self.xaxis = d3.axisBottom( self.xscale )
 			.tickValues([-5,20,40,60,80,100,120,140,160])
-            .tickSize(-self.inner_height -self.config.margin.top)
+            .tickSize(-self.inner_height)
             .tickPadding(10);
 
         self.xaxis_group = self.chart.append('g')
@@ -64,7 +66,7 @@ class ScatterPlot {
         // Add yaxis
         self.yaxis = d3.axisLeft( self.yscale )
 			.tickValues([10,20,30,40,50,60,70,80,90,110])
-            .tickSize(-self.inner_width  -self.config.margin.left)
+            .tickSize(-self.inner_width)
             .tickPadding(10);
             
         self.yaxis_group = self.chart.append('g')
@@ -83,6 +85,28 @@ class ScatterPlot {
         self.yscale.domain( [ymin, ymax] );
         
         
+        
+        
+    	self.svg.append("text")
+        	.attr("x", self.xscale(xmax/2) + 15 )
+        	.attr("y", 15)
+        	.attr("font-size", 15)
+        	.text("Chart Title");   
+           
+           
+    	self.svg.append("text")
+        	.attr("x", self.xscale(xmax/2) + 50 )
+        	.attr("y", 300)
+        	.attr("font-size", 15)
+        	.text("x");   
+        
+        
+    	self.svg.append("text")
+        	.attr("x", 20 )
+        	.attr("y", self.yscale(ymax/2) + 25)
+        	.attr("font-size", 15)
+        	.text("y");   
+        	
 
         self.render();
     }
@@ -104,5 +128,12 @@ class ScatterPlot {
         // Add yaxis
         self.yaxis_group
             .call( self.yaxis );
+            
+        
+        
+        
+            
+            
+        
     }
 }
