@@ -5,7 +5,7 @@ d3.csv("https://takenoko2000.github.io/InfoVis2021/W06/data.csv")
         var config = {
             parent: '#drawing_region',
             width: 300,
-            height: 300,
+            height: 400,
             margin: {top:30, right:30, bottom:30, left:30}
         };
 
