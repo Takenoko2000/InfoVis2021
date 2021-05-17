@@ -1,4 +1,4 @@
-d3.csv("https://takenoko2000.github.io/InfoVis2021/W04/data_task2.csv").then(data => {
+d3.csv("https://takenoko2000.github.io/InfoVis2021/W08/data_pie.csv").then(data => {
   data.forEach(d => {
     d.width = +d.width;
     d.color = d.color;
