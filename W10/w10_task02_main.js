@@ -34,7 +34,6 @@ class ScatterPlot {
     init() {
         let self = this;
         
-        self.tooltip = d3.select("body").append("div").attr("class", "tooltip");
         
         self.svg = d3.select( self.config.parent )
             .attr('width', self.config.width)
