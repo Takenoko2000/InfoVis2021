@@ -1,6 +1,6 @@
 
-//uparent‚É‡‚í‚¹‚Äg‚¤ƒf[ƒ^‚ğ•Ï‚¦‚évd‘g‚İ‚ª‚æ‚­‚í‚©‚ç‚È‚¢‚Ì‚Å
-//d•û‚È‚­ğŒ•ªŠò‚Å‘‚¢‚Ä‚ ‚é
+//ã€Œparentã«åˆã‚ã›ã¦ä½¿ã†ãƒ‡ãƒ¼ã‚¿ã‚’å¤‰ãˆã‚‹ã€ä»•çµ„ã¿ãŒã‚ˆãã‚ã‹ã‚‰ãªã„ã®ã§
+//ä»•æ–¹ãªãæ¡ä»¶åˆ†å²ã§æ›¸ã„ã¦ã‚ã‚‹
 
 class BarChart2 {
   constructor(config, data) {
@@ -44,21 +44,21 @@ class BarChart2 {
     self.yscale = d3.scaleBand().domain(self.data.map(d => d.prefecture)).range([0, self.inner_height]).paddingInner(0.1);
     
     
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ª‘–ÊÏ‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒç·é¢ç©ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "all_area"){
     	self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.all_area)]).range([0, self.inner_width]);
     }
 
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ªlŒû‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒäººå£ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "population"){
         self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.population)]).range([0, self.inner_width]);
     }
     
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ªlŒû–§“x‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒäººå£å¯†åº¦ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "population_density"){
         self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.population_density)]).range([0, self.inner_width]);
     }
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ªX—Ñ—¦‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒæ£®æ—ç‡ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "forest_ratio"){
         self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.forest_ratio)]).range([0, self.inner_width]);
     }
@@ -102,21 +102,21 @@ class BarChart2 {
     self.yscale = d3.scaleBand().domain(self.data.map(d => d.prefecture)).range([0, self.inner_height]).paddingInner(0.1);
     
 
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ª‘–ÊÏ‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒç·é¢ç©ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "population"){
     	self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.all_area)]).range([0, self.inner_width]);
     }
 
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ªlŒû‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒäººå£ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "population"){
         self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.population)]).range([0, self.inner_width]);
     }
     
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ªlŒû–§“x‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒäººå£å¯†åº¦ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "population_density"){
         self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.population_density)]).range([0, self.inner_width]);
     }
-    //ƒ‰ƒxƒ‹‚Ìw’è‚ªX—Ñ—¦‚¾‚Á‚½ê‡
+    //ãƒ©ãƒ™ãƒ«ã®æŒ‡å®šãŒæ£®æ—ç‡ã ã£ãŸå ´åˆ
     if(self.config.xlabel == "forest_ratio"){
         self.xscale = d3.scaleLinear().domain([0, d3.max(self.data, d => d.forest_ratio)]).range([0, self.inner_width]);
     }
@@ -126,17 +126,17 @@ class BarChart2 {
     self.yaxis = d3.axisLeft(self.yscale).tickSizeOuter(0);
 
 
-	//ˆÚ“®•½‹Ï‚ğŒvZ‚µ‚Ä”z—ñ‚É’Ç‰Á‚µ‚Ä‚¢‚­
+	//ç§»å‹•å¹³å‡ã‚’è¨ˆç®—ã—ã¦é…åˆ—ã«è¿½åŠ ã—ã¦ã„ã
 	self.sma_range = 8;
 	self.sma = [];
-	//ˆÚ“®•½‹Ï‚Ì’†S‚É‚È‚éprefecture‚à•Û‚µ‚Ä‚¨‚­
+	//ç§»å‹•å¹³å‡ã®ä¸­å¿ƒã«ãªã‚‹prefectureã‚‚ä¿æŒã—ã¦ãŠã
 	self.sma_prefecture = [];
 	
 	for (let i = 0; i < self.data.length - self.sma_range; i++) {
-		//‚±‚ê‚Å”z—ñ‚©‚çˆê•”•ª‚ğ”²‚«o‚·
+		//ã“ã‚Œã§é…åˆ—ã‹ã‚‰ä¸€éƒ¨åˆ†ã‚’æŠœãå‡ºã™
 		let smadata = self.data.slice(i,i+self.sma_range-1);
 		
-		//reduce‚ğg‚¤‚ÆAƒR[ƒ‹ƒoƒbƒNŠÖ”‚Å‡Œv’l‚ğ‹‚ß‚é‚±‚Æ‚ª‚Å‚«‚é
+		//reduceã‚’ä½¿ã†ã¨ã€ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯é–¢æ•°ã§åˆè¨ˆå€¤ã‚’æ±‚ã‚ã‚‹ã“ã¨ãŒã§ãã‚‹
 		
 		let total;
 		if(self.config.xlabel == "forest_ratio"){
@@ -147,14 +147,14 @@ class BarChart2 {
 			total = smadata.reduce((sum, element) => sum + element.population_density, 0);
 		}
 		
-		//‹‚ß‚½‡Œv‚©‚ç•½‹Ï’l‚ğ‹‚ß‚ÄŠi”[
+		//æ±‚ã‚ãŸåˆè¨ˆã‹ã‚‰å¹³å‡å€¤ã‚’æ±‚ã‚ã¦æ ¼ç´
 		self.sma.push( Math.floor(self.xscale(total / self.sma_range)) );
 		
 		self.sma_prefecture.push(self.yscale( self.data[Math.floor(i+self.sma_range/2)].prefecture ));
 		
 	}
 	
-	//ˆÚ“®•½‹Ï‚Ì’l‚Æ’†S‚ğAŒã‚Åd3.line()‚É“n‚·‚½‚ß‚É‚Ü‚Æ‚ß‚Ä‚¨‚­
+	//ç§»å‹•å¹³å‡ã®å€¤ã¨ä¸­å¿ƒã‚’ã€å¾Œã§d3.line()ã«æ¸¡ã™ãŸã‚ã«ã¾ã¨ã‚ã¦ãŠã
 	self.sss = {
 		data: self.sma,
 		prefecture: self.sma_prefecture
@@ -180,7 +180,7 @@ class BarChart2 {
     
     
     
-    // w’è‚ªlŒû
+    // æŒ‡å®šãŒäººå£
     if(self.config.xlabel == "population"){
 	    self.chart.selectAll(".bar")
 	    .data(self.data)
@@ -193,7 +193,7 @@ class BarChart2 {
 	    .attr("height", self.yscale.bandwidth());
 	}
     
-    // w’è‚ª‘–ÊÏ
+    // æŒ‡å®šãŒç·é¢ç©
     if(self.config.xlabel == "all_area"){
 	    self.chart.selectAll(".bar")
 	    .data(self.data)
@@ -206,7 +206,7 @@ class BarChart2 {
 	    .attr("height", self.yscale.bandwidth());
 	}
 	
-    // w’è‚ªX—Ñ—¦
+    // æŒ‡å®šãŒæ£®æ—ç‡
     if(self.config.xlabel == "forest_ratio"){
 	    self.chart.selectAll(".bar")
 	    .data(self.data)
@@ -219,7 +219,7 @@ class BarChart2 {
 	    .attr("height", self.yscale.bandwidth());
 	}
 	
-    // w’è‚ªlŒû–§“x
+    // æŒ‡å®šãŒäººå£å¯†åº¦
     if(self.config.xlabel == "population_density"){
 	    self.chart.selectAll(".bar")
 	    .data(self.data)
@@ -233,9 +233,9 @@ class BarChart2 {
 	}
 
 	
-	//ƒ}ƒEƒXƒI[ƒo[‚âƒNƒŠƒbƒN‚É”½‰‚³‚¹‚é•”•ª
-    //‚±‚Ì‘‚«•û‚¶‚á‚È‚¢‚ÆƒGƒ‰[‚É‚È‚é
-    //function‚Ìˆø”‚Í[Mouseevent]‚Æ[Object]i‘Î‰‚·‚éƒf[ƒ^j‚É‚È‚Á‚Ä‚¢‚é
+	//ãƒã‚¦ã‚¹ã‚ªãƒ¼ãƒãƒ¼ã‚„ã‚¯ãƒªãƒƒã‚¯ã«åå¿œã•ã›ã‚‹éƒ¨åˆ†
+    //ã“ã®æ›¸ãæ–¹ã˜ã‚ƒãªã„ã¨ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
+    //functionã®å¼•æ•°ã¯[Mouseevent]ã¨[Object]ï¼ˆå¯¾å¿œã™ã‚‹ãƒ‡ãƒ¼ã‚¿ï¼‰ã«ãªã£ã¦ã„ã‚‹
     self.chart.selectAll("rect")
     .on("click",function(ev,d,elem){
 	    const is_active = filter.includes(d.prefecture);
@@ -243,7 +243,7 @@ class BarChart2 {
 	        filter = filter.filter( f => f !== d.prefecture );
 	    }
 	    else {
-	    	//¡‚Ì‚Æ‚±‚ëaggregated‚É‚µ‚Ä‚È‚¢‚©‚ç‚±‚ê‚Å‚¢‚¢
+	    	//ä»Šã®ã¨ã“ã‚aggregatedã«ã—ã¦ãªã„ã‹ã‚‰ã“ã‚Œã§ã„ã„
 	        filter.push( d.prefecture );
 	    }
 	    Filter();
@@ -252,7 +252,7 @@ class BarChart2 {
     .on('mouseover', (e,d) => {
         d3.select('#tooltip')
             .style('opacity', 1)
-            .html(`<div class="tooltip-label">Prefecture:${d.prefecture}</div>Forest_ratio: ${d.forest_ratio}<br>Population_density(l/ha): ${d.population_density}<br>Population(l): ${d.population}`);
+            .html(`<div class="tooltip-label">Prefecture:${d.prefecture}</div>Forest_ratio: ${d.forest_ratio}<br>Population_density(people/ha): ${d.population_density}<br>Population(people): ${d.population}`);
     })
     .on('mousemove', (e) => {
         const padding = 10;
@@ -271,7 +271,7 @@ class BarChart2 {
 		data.push({x: self.sss.data[i], y: self.sss.prefecture[i]});
 	}
 
-	//Å‘O–Ê‚ÉãY—í‚É•\¦‚³‚¹‚é•û–@‚ª‚í‚©‚ç‚È‚¢‚Ì‚ÅˆÊ’u‚ğ‚¸‚ç‚µ‚ÄŒ©‚â‚·‚­‚·‚é
+	//æœ€å‰é¢ã«ç¶ºéº—ã«è¡¨ç¤ºã•ã›ã‚‹æ–¹æ³•ãŒã‚ã‹ã‚‰ãªã„ã®ã§ä½ç½®ã‚’ãšã‚‰ã—ã¦è¦‹ã‚„ã™ãã™ã‚‹
 	self.line = d3.line()
 	      .x( d => d.x + 30 )
 	      .y( d => d.y );
