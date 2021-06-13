@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Forest_ratio & Population_density of Each Prefecture</title>
+        
+    <!-- ˆÈ‰º‚Ì‚æ‚¤‚Édiv‚ÌÝ’è‚ð‚·‚é‚±‚Æ‚ª•¡”‚Ìƒrƒ…[‚É•K{ -->
+    
+    <style>
+	body {
+	    font-family: system-ui;
+	}
+	.container {
+	    display: flex;
+	}
+	
+	
+	 #tooltip {
+	     position: absolute;
+	     opacity: 0;
+	     background: #fff;
+	     border: 1px solid #ddd;
+	     font-size: 12px;
+	     font-weight: 600;
+	     padding: 2px 8px;
+	 }
+	 .tooltip-label {
+	     font-weight: 500;
+	     font-size: 11px;
+	     color: #888;
+	 }
+	</style>
+        
+        
+    </head>
+    <body>
+    
+	<h2>Forest_ratio & Population_density of Each Prefecture</h2>
+    
+    </body>
+    
+	<div>
+		<button type="button" id="descend_forest_ratio">Descend: forest_ratio</button>
+	    <button type="button" id="ascend_forest_ratio">Ascend: forest_ratio</button>
+	    
+	    <button type="button" id="descend_population_density">Descend: population_density</button>
+	    <button type="button" id="ascend_population_density">Ascend: population_density</button>
+
+	    <button type="button" id="descend_population">Descend: population</button>
+	    <button type="button" id="ascend_population">Ascend: population</button>
+	    
+	    
+	</div>
+	
+	<div id="tooltip"></div>
+	
+	<div class="container">
+	    <div><svg id="drawing_region_barchart"></svg></div>
+	    <div><svg id="drawing_region_barchart2"></svg></div>
+	    <div><svg id="drawing_region_barchart3"></svg></div>
+	</div>
+	
+	<svg id="drawing_region"></svg>
+	<script src="svg-z-order.js"></script>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="project_barchart.js"></script>
+	<script src="project_barchart2.js"></script>
+	<script src="project_main.js"></script>
+</html>
